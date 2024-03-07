@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin Panel{% endblock %}
+{% block header %}Admin Panel{% endblock %}
+{% block content %}
+    <button class="btn" value="Create Account"><a href="/admin/create_account">Create Account</a></button>
+    <button class="btn" value="Deduct Tax"><a href="/admin/tax">Deduct Tax</a></button>
+    <button class="btn" value="Freeze Account"><a href="/admin/freeze_account">Freeze Account</a></button>
+    <button class="btn" value="Release Account"><a href="/admin/release_account">Release Account</a></button>
+    <button class="btn" value="Personal Loan"><a href="/admin/loan">Personal Loan</a></button>
+{% endblock %}
+

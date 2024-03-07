@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Create Account{% endblock %}
+{% block header %}Create Account{% endblock %}
+
+{% block content %}
+<form action="/admin/create_account" method="POST">
+    <div class="form-group">
+        <label for="acc_no">Account Number:</label>
+        <input type="text" id="acc_no" name="acc_no" maxlength="6" required>
+    </div>
+    <div class="form-group">
+        <label for="acc_holder">Account Holder:</label>
+        <input type="text" id="acc_holder" name="acc_holder" required>
+    </div>
+    <div class="form-group">
+        <label for="acc_email">Account Email:</label>
+        <input type="email" id="acc_email" name="acc_email" required>
+    </div>
+    <div class="form-group">
+        <label for="acc_holder_dob">Date of Birth:</label>
+        <input type="date" id="acc_holder_dob" name="acc_holder_dob">
+    </div>
+    <div class="form-group">
+        <label for="acc_pin">Pin:</label>
+        <input type="password" id="acc_pin" name="acc_pin" maxlength="4" required>
+    </div>
+    <div class="form-group">
+        <label for="acc_principal">Principal:</label>
+        <input type="number" id="acc_principal" value=500 name="acc_principal" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create Account">
+    </div>
+</form>
+{% endblock %}

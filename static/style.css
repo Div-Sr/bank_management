@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 1vh;
+    border-radius: 7px;
+    background-color: black;
+    margin-left: 4vw;
+    height: 6vh;
+    padding: 5px 10px 5px 10px;
+    color: white;
+}
+
+.payLoanBtn {
+    margin-top: 1vh;
+    border-radius: 7px;
+    background-color: black;
+    margin-left: 4vw;
+    height: 6vh;
+    padding: 5px 10px 5px 10px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+._btn {
+    /* margin-top: 1vh; */
+    border-radius: 7px;
+    background-color: black;
+    margin-left: 4vw;
+    height: 5vh;
+    padding: 5px 10px 5px 10px;
+}
+
+@media screen and (max-width: 990px) {
+  .btn {
+    height: 4vh;
+    padding: 1vh 1.5vw 1vh 1.5vw;
+    color: white;
+  }
+  ._btn {
+    height: 2.5vh;
+    padding: 0.1vh 1vh 0.1vh 1vh;
+  }
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .form-group input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .form-group input[type="submit"]:hover {
+    background-color: #2980b9;
+  }
+
+  p {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  p, .btn, ._btn, .form-group, .header, th, td, .payLoanBtn{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  @media screen and (max-width: 400px) {
+    p, .form-group {
+        font-size: medium;
+    }
+    .header{
+        font-size: larger;
+    }
+  }
+
+  #feedback {
+    min-width: 100%;
+    min-height: 40vh;
+    max-width: 100%;
+    max-height: 40vh;
+    font-size: large;
+    font-family:'Times New Roman', Times, serif;
+    display: flex;
+    flex-wrap: wrap;
+  }

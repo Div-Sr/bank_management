@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Tax Deduction{% endblock %}
+{% block header %}Tax Deduction{% endblock %}
+
+{% block content %}
+
+<form action="/tax" method="POST">
+    <div class="form-group">
+      <label for="acc_no">Account Number:</label>
+      <input type="text" id="acc_no" name="acc_no" maxlength="6" required>
+    </div>
+    <div class="form-group">
+      <label for="tax">Percentage:</label>
+      <input type="number" id="tax" name="tax" maxlength="3" required>
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Deduct Amount">
+    </div>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}Pay | Reserve Bank of India{% endblock %}
+{% block header %}Pay | Reserve Bank of India{% endblock %}
+
+{% block content %}
+
+<form action="/pay/{{acc_no}}" method="POST">
+    <div class="form-group">
+        <label for="acc_no1">Reciever's Account Number:</label>
+        <input type="text" id="acc_no1" name="acc_no1" maxlength="6" required>
+    </div>
+    <div class="form-group">
+        <label for="acc_holder">Reciever's Name:</label>
+        <input type="text" id="acc_holder" name="acc_holder" required>
+    </div>
+    <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Pay Now">
+    </div>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        var socketPhone = io.connect('http://192.168.22.171:5000', {query: {acc_no: '{{acc_no}}'}}); // Adjust the URL according to your server address
+
+        socketPhone.on('connect', function() {
+            console.log('Connected to phone server');
+        });
+
+        socketPhone.on('disconnect', function() {
+            console.log('Disconnected from server');
+        });
+
+        socketPhone.on('notification', function(data) {
+            alert(data.message);
+            // Handle the notification as needed
+        });
+        var socketWifi = io.connect('http://192.168.1.6:5000', {query: {acc_no: '{{acc_no}}'}}); // Adjust the URL according to your server address
+
+        socketWifi.on('connect', function() {
+            console.log('Connected to router server');
+        });
+
+        socketWifi.on('disconnect', function() {
+            console.log('Disconnected from server');
+        });
+
+        socketWifi.on('notification', function(data) {
+            alert(data.message);
+            // Handle the notification as needed
+        });
+        var socketLocal = io.connect('http://127.0.0.1:5000', {query: {acc_no: '{{acc_no}}'}}); // Adjust the URL according to your server address
+
+        socketLocal.on('connect', function() {
+            console.log('Connected to local server');
+        });
+
+        socketLocal.on('disconnect', function() {
+            console.log('Disconnected from server');
+        });
+
+        socketLocal.on('notification', function(data) {
+            alert(data.message);
+            // Handle the notification as needed
+        });
+    </script>
+{% endblock %}

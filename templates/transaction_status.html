@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}Transaction Status{% endblock %}
+{% block header %}Transaction {{status}}!{% endblock %}
+
+{% block content %}
+
+    <button class='btn' type='button'><a href='/dashboard/{{acc_no}}'>OK</a></button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+    <script>
+        var socketPhone = io.connect('http://192.168.22.171:5000', {query: {acc_no: '{{acc_no}}'}}); // Adjust the URL according to your server address
+
+        socketPhone.on('connect', function() {
+            console.log('Connected to phone server');
+        });
+
+        socketPhone.on('disconnect', function() {
+            console.log('Disconnected from server');
+        });
+
+        socketPhone.on('notification', function(data) {
+            alert(data.message);
+            // Handle the notification as needed
+        });
+        var socketWifi = io.connect('http://192.168.1.6:5000', {query: {acc_no: '{{acc_no}}'}}); // Adjust the URL according to your server address
+
+        socketWifi.on('connect', function() {
+            console.log('Connected to router server');
+        });
+
+        socketWifi.on('disconnect', function() {
+            console.log('Disconnected from server');
+        });
+
+        socketWifi.on('notification', function(data) {
+            alert(data.message);
+            // Handle the notification as needed
+        });
+        var socketLocal = io.connect('http://127.0.0.1:5000', {query: {acc_no: '{{acc_no}}'}}); // Adjust the URL according to your server address
+
+        socketLocal.on('connect', function() {
+            console.log('Connected to local server');
+        });
+
+        socketLocal.on('disconnect', function() {
+            console.log('Disconnected from server');
+        });
+
+        socketLocal.on('notification', function(data) {
+            alert(data.message);
+            // Handle the notification as needed
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}Freeze Account{% endblock %}
+{% block header %}Freeze Account{% endblock %}
+{% block content %}
+
+<form action="/admin/freeze_account" method="POST">
+    <div class="form-group">
+        <label for="acc_no">Account Number:</label>
+        <input type="text" id="acc_no" name="acc_no" maxlength="6" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Freeze Account">
+    </div>
+</form>
+
+{% endblock %}
